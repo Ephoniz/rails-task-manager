@@ -1,0 +1,19 @@
+<h1>Tasks</h1>
+
+<ul class="list">
+<% @tasks.each do |task| %>
+  <li>
+  <%if task.completed %>
+    <i class="fa fa-check-square-o"></i>
+  <% else %>
+    <i class="fa fa-square-o"></i>
+  <% end %>
+    <%= link_to task.title, task_path(task) %>
+    <small>
+        <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: 'Are you sure you want to delete this restaurant?' } %>
+    </small>
+  </li>
+<%end%>
+</ul>
+
+<p><%= link_to 'New', new_task_path %></p>
